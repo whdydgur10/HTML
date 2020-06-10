@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react</title>
+    <style>
+        body{
+        margin: 0;
+        }
+        .box{
+            width: 50%;
+            height: 100vh;
+            float: left;
+            background-color: blue;
+            position: relative;
+        }
+        .box:nth-of-type(2){
+            background-color: blueviolet;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .box1:nth-of-type(1){
+            margin: 20px;
+            background-color: yellow;
+        }
+        .box1:nth-of-type(2){
+            margin: 40px;
+            background-color: rgb(211, 211, 4);
+        }
+        .box1:nth-of-type(3){
+            margin: 60px;
+            background-color: rgb(146, 146, 3);
+        }
+        .box1:nth-of-type(4){
+            margin: 80px;
+            background-color: rgb(99, 99, 0);
+        }
+        .box1:nth-of-type(5){
+            margin: 100px;
+            background-color: rgb(24, 24, 0);
+        }
+        @media (max-width: 640px) {
+            /* 640px 이하일 때 */
+            .box{
+                width: 100%;
+            }
+        }
+        /* 반응형 : 디바이스 화면 크기에 따라 화면이 다르게 보이는 것
+        @media 조건 and 조건{} 만족하면 css를 적용 */
+        @media (min-width: 641px) {
+            /* 641px 이상일 때 */
+            .box{
+                width: 50%;
+            }
+        }
+        @media (max-width: 600px){
+            .box1{
+                width: 50px;
+                height: 50px;
+            }
+            .box1:nth-of-type(2){
+                margin: -50px;
+            }
+            .box1:nth-of-type(4){
+                opacity: 0;
+                display: none;
+                visibility: hidden;
+            }
+        }
+        @media (min-width: 601px){
+            .box1{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+    <div class="box"></div>
+</body>
+</html>

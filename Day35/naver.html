@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naver</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            background-color: rgb(245, 246, 247);
+        }
+        #lang{
+            width: 90px;
+            height: 30px;
+            font-size: 15px;
+            position: absolute;
+            top: 10px;
+            right: 20%;
+            float: right;
+        }
+        .box-main{
+            width: 600px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .box-logo{
+            height: 80px;
+            width: 100%;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .box-logo>a{
+            color: rgb(0, 200, 80);
+            line-height: 80px;
+            font-weight: 1000;
+            font-size: 70px;
+        }
+        .box-input{
+            height: 50px;
+            box-sizing: border-box;
+            border: 1px solid rgb(218, 218, 218);
+            padding: 10px 30px 10px 10px;
+            margin: 10px 0;
+            background-color: white;
+        }
+        .box-input>input{
+            height: 80%;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-login{
+            display: block;
+            width: 100%;
+            height: 70px;
+            background-color: rgb(0, 200, 80);
+            color: white;
+            border: none;
+            font-size: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 40px 0px ;
+        }
+        .box-etc{
+            height: 24px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgb(102, 102, 102);
+        }
+        .box-etc-left{
+            height: 100%;
+            float: left;
+            position: relative;
+            margin-left: 5px;
+        }
+        .box-etc-left>input[type=checkbox]{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+        .box-etc-left>label{
+            line-height: 24px;
+            height: 24px;
+            padding-left: 24px;
+            cursor: pointer;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 125px;
+            background-image: url(체크.png);
+            background-repeat: no-repeat;
+        }
+        .box-etc-right{
+            height: 100%;
+            float: right;
+            padding-right: 10px;
+        }
+        .font-gray{
+            color: rgb(102, 102, 102);
+        }
+        
+        .box-etc-right>.bar{
+            position: relative;
+            top: -2px;
+        }
+        .btn-on{
+            font-weight: 700;
+            border: none;
+            position: relative;
+            top: -1px;
+            cursor: pointer;
+        }
+        .link-login{
+            text-decoration: underline;
+            
+        }
+        .box-q{
+            width: 20px;
+            height: 20px;
+            background-image: url(물음표.png);
+            float: right;
+            cursor: pointer;
+        }
+        .box-find{
+            margin-top: 30px;
+            height: 40px;
+            text-align: center;
+            
+        }
+        .bar{
+            cursor: default;
+        }
+        .box-add{
+            height: 600px;
+            margin: 50px auto;
+            background-image: url(../Day32/꽃.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 770px){
+            .box-main{
+                width: 100%;
+            }
+            .box-logo>a{
+                font-size: 50px;
+            }
+            .box-add{
+                width: 80%;
+            }
+            #lang{
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST">
+        <div class="box-main">
+            <div class="box-logo">
+                <a href="//naver.com" target="_blank">NAVER</a>
+            </div>
+            <select name="lang" id="lang">
+                <option value="korean">한국어</option>
+                <option value="english">english</option>
+                <option value="chinese">中文(简体)</option>
+                <option value="taiwan">中文台湾）</option>
+            </select>
+            <div class="box-input">
+                <input type="text" placeholder="아이디">
+            </div>
+            <div class="box-input">
+                <input type="password" placeholder="비밀번호">
+            </div>
+            <button class="btn-login">로그인</button>
+            <div class="box-etc">
+                <div class="box-etc-left">
+                    <input type="checkbox" name="login" id="login">
+                    <label for="login">로그인 상태 유지</label>
+                </div>
+                <div class="box-etc-right">
+                    <a href="#" class="link-ip font-gray">IP보안</a>
+                    <button class="btn-on font-gray">OFF</button>
+                    <span class="bar font-gray">|</span>
+                    <a href="#" class="link-login font-gray">일회용 로그인</a>
+                    <div class="box-q"></div>
+                </div>
+            </div>
+            <div class="box-find">
+                <a href="#" class="find-id font-gray">아이디 찾기</a>
+                <span class="bar font-gray">|</span>
+                <a href="#" class="find-pw font-gray">비밀번호 찾기</a>
+                <span class="bar font-gray">|</span>
+                <a href="#" class="make-id font-gray">회원가입</a>
+            </div>
+            <div class="box-add">
+                <a href="#" class="link-add"></a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
