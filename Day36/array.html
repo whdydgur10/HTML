@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+    <script>
+        var arr = [];
+        arr.push('1');
+        arr.push(2);
+        arr.push(3.14);
+        arr.push(true);
+        for(var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+        var tmp = arr.pop();
+        console.log(tmp);
+        console.log(arr);
+        tmp = arr.splice(1,2);
+        // splice(start-index,del-count) start번지로부터 count개 잘라냄
+        console.log(arr);
+        console.log(tmp);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

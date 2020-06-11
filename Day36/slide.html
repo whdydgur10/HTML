@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <button>슬라이드</button>
+    <div class="box">
+        hihi<br>
+        gogo<br>
+    </div>
+    <div>
+        yeye<br>
+    </div>
+    <script>
+        $('.box').slideUp(3000,function(){
+            $('.box').slideDown(3000);
+        });
+        // slideUp, slideDown, slideToggle (msecond(=시간 ms단위),function(){}(=완료된 후 동작)) 내용 생략가능
+        $('button').click(function(){
+            $('.box').slideToggle(1000)
+        });
+    </script>
+</body>
+</html>
