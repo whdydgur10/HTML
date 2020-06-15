@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test38_2</title>
+    <script src="../jquery.js"></script>
+    <style>
+        body{
+            font-size: 15px;
+        }
+        .thispage{
+            color: cadetblue;
+            font-size: 20px;
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .prepage{
+            color: brown;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="pre">이전</button>
+    <button id="next">다음</button>
+    <div class="res">
+        <span><a href="#" class="page">1</a></span>
+        <span><a href="#" class="page">2</a></span>
+        <span><a href="#" class="page">3</a></span>
+        <span><a href="#" class="page">4</a></span>
+        <span><a href="#" class="page">5</a></span>
+        <span><a href="#" class="page">6</a></span>
+    </div>
+    <script>
+        $(function(){
+            var cnt = 0;
+            var pre;
+            $('#next').click(function(){
+                if(cnt < $('.res').children().length+1) {
+                    $('.page').eq(cnt).addClass('thispage');
+                    $('.page').eq(cnt-1).removeClass('thispage');   
+                    cnt++;
+                }
+                if(cnt > $('.res').children().length) {
+                    alert('마지막 페이지입니다.')
+                    $('.page').last().addClass('thispage');
+                    cnt = 6;
+                }
+            })
+            $('#pre').click(function(){
+                cnt--;
+                if(cnt > 0) {
+                    console.log(cnt);
+                    $('.page').eq(cnt-1).addClass('thispage');
+                    $('.page').eq(cnt).removeClass('thispage');
+                }
+                if(cnt < 1){
+                    alert('첫번째 페이지입니다.')
+                    $('.page').first().addClass('thispage');
+                    cnt = 1;
+                }
+            })
+            $('.page').click(function(){
+                $('.page').eq(pre-1).addClass('prepage');
+                $(this).addClass('thispage');
+                cnt = $(this).text();
+                pre = $(this).text();
+                console.log(cnt);
+            })
+        })
+    </script>
+</body>
+</html>

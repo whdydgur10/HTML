@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>children</title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            border: 2px solid black;
+            padding: 10px;
+            margin: 0;
+        }
+        .bg-red{
+            background-color: red;
+        }
+        .bg-green{
+            background-color: green;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="menu1">메뉴1</li>
+                <li class="menu2">메뉴2</li>
+                <li class="menu3">메뉴3</li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        $(function(){
+            $('nav').children().addClass('bg-blue').css('border-color','yellow');
+            $('ul').children('.menu2').css('color','white');
+            // children() : 자식을 찾는 메소드 - 매개변수가 없는 경우 모든 자식
+            $('html').find('*').addClass('bg-red');
+            $('html').find('body').css('border-color','gray');
+            // find(선택자) : 자손 중 선택자를 찾는 메소드 - 모든 자손은 *
+        })
+    </script>
+</body>
+</html>

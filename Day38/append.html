@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .out-box{
+            border: 3px solid red;
+            padding: 10px;
+        }
+        .in-box{
+            border: 2px solid black;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #stand{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+    <button id="after">after</button>
+    <button id="before">before</button>
+    <div class="out-box" id="stand">
+        <div class="in-box">stand</div>
+    </div>
+    <script>
+        var append = 1;
+        var prepend = 1;
+        var after = 1;
+        var before = 1;
+        // append|prepend : 자식 기준
+        // after|before : 본인 기준
+        $('#append').click(function(){
+            var str = '<div class="in-box">append'+append+'</div>';
+            $('#stand').append(str);
+            append++;
+        })
+        $('#prepend').click(function(){
+            var str = '<div class="in-box">prepend'+prepend+'</div>';
+            $('#stand').prepend(str);
+            prepend++;
+        })
+        // $(선택자).append(문자열) : 선택자 요소 안 마지막에 문자열을 추가
+        // $(선택자).prepend(문자열) : 선택자 요소 안 처음에 문자열을 추가
+        // $(문자열).appendTo(선택자) : 선택자 요소 안 마지막에 문자열을 추가
+        // $(문자열).prependTo(선택자) : 선택자 요소 안 처음에 문자열을 추가
+        $('#after').click(function(){
+            var str = '<div class="in-box">after'+after+'</div></div>';
+            $('#stand').after(str);
+            after++;
+        })
+        $('#before').click(function(){
+            var str = '<div class="out-box"><div class="in-box">before'+before+'</div></div>';
+            $('#stand').before(str);
+            before++;
+        })
+        // $(선택자).after(문자열) : 선택자 뒤에 문자열을 추가
+        // $(선택자).before(문자열) : 선택자 앞에 문자열을 추가
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test38_3</title>
+    <script src="https://kit.fontawesome.com/55171a36f0.js" crossorigin="anonymous"></script>
+    <script src="../jquery.js"></script>
+    <style>
+        input{
+            margin: 10px 0;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="add" id="add">추가</button>
+        <div class="box">
+        </div>
+        <a href="#add"><button><i class="fas fa-angle-double-up"></i></button></a>
+    </div>
+    <script>
+        $(function(){
+            var str = '';
+            var cnt = 1;
+            $('.add').click(function(){
+                str = $('.box').html();
+                str += '<input type="text" class="input'+cnt+'"><button class="btn'+cnt+'">'+cnt+'</button><br>';
+                $('.box').html(str);
+                registerbtn();
+                cnt++;
+                // 이벤트를 통해 태그를 만들었을 때 그 버튼을 사용한 이벤트를 만들어도 적용이 되지 않는다.
+                // 그래서 버튼에 대한 이벤트를 만들어 생성될 때마다 적용시킨다.
+            })
+            function registerbtn(){
+                $('.box button').click(function(){
+                    var str2 = $(this).prev().val();
+                    console.log(str2);
+                    
+                })
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <input type="text" id="input1"><br>
+    <select name="month" id="month">
+        <!-- <option value="" selected>월</option> -->
+    </select>
+    <select name="day" id="day">
+        <!-- <option value="" selected>일</option> -->
+    </select>
+    <script>
+        $('#input1').change(function(){
+            var tmp = $(this).val();
+            console.log(tmp);
+        })
+        // change : input|select|textarea태그에서 발생
+        var month = '<option value="" selected>' + '월' + '</option>';
+        for(var i = 1; i <= 12; i++){
+            month += '<option>' + i + '</option>';
+        }
+        $('#month').html(month);
+        var day = '<option value="" selected>' + '일' + '</option>';
+        $('#month').change(function(){
+            var month1 = $(this).val();
+            var lastday = 0;
+            switch(month1){
+                case '1': case '3': case '5': case '7': case '8': case '10': case '12':
+                    lastday = 31;
+                    break;
+                case '2':
+                    lastday = 28;
+                    break;
+                case '4': case '6': case '9': case '11':
+                    lastday = 30;
+                    break;
+            }
+            for(var i = 1; i <= lastday; i++){
+                day += '<option>' + i + '</option>';
+            }
+            $('#day').html(day);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>siblings</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .container *{
+            margin: 0;
+            padding: 10px;
+            display: block;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        div
+        <p>p1</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p class="p">p2</p>
+    </div>
+    <script>
+        $(function(){
+            $('h2').siblings().css('border-color','red');
+            $('h2').siblings('span').css('border-color','blue');
+            // sibilings() : 본인을 제외한 형제를 선택하는 함수
+            $('span').next().css('background-color','yellow');
+            // next() : 선택자의 바로 뒤의 형제
+            $('span').nextAll().css('color','red');
+            $('span').nextAll('p').css('text-decoration','underline');
+            // nextAll() : 선택자의 모든 후순위 형제
+            $('span').nextUntil('p').css('border-width','5px');
+            // nextUntil(매개변수) : 선택자에서 매개변수 선택자 전까지의 모든 후순위 형제들
+            $('.p').prev().css('border-left-color','gray');
+            // prev() : 선택자의 바로 앞의 형제
+            $('.p').prevAll().css('border-top-color','green');
+            $('.p').prevAll('h2').css('font-size','10px');
+            // prevAll() : 선택자의 모든 전순위 형제
+            $('.p').prevUntil('p').css('text-align','center');
+            // prevUntil(매개변수) : 선택자에서 매개변수 선택자 전까지의 모든 전순위 형제들
+        })
+    </script>
+</body>
+</html>

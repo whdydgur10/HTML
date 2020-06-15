@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filtering</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <h1 class="h1">h1</h1>
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <h1 class="h1">h1</h1>
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <script>
+        $(function(){
+            // filtering : 선택자를 통해 선택된 요소들을 걸러줌
+            $('h1').first().css('color','red');
+            $('.h1').first().css('color','darkred');
+            // first() : 선택자 요소의 첫번째 (=eq(0))
+            $('h1').last().css('text-decoration','underline');
+            $('.h1').last().css('text-decoration','underline');
+            // last() : 선택자 요소의 마지막
+            $('h1').eq(4).css('text-align','center');
+            // eq(index) : 선택자들중 index + 1번째 요소
+            $('h1').filter('.h1').css('background-color','yellow');
+            $('h1.h1').css('text-align','right');
+            // filter(매개변수) : 선택자들 중 매개변수에 해당하는 요소들을 선택 (=$(선택자매개변수)) 순서는 바뀔수도 있음
+            $('h1').not('.h1').css('border','1px solid black');
+            // not(매개변수) : 선택자들 중 매개변수에 해당하지 않는 요소들을 선택
+        })
+    </script>
+</body>
+</html>

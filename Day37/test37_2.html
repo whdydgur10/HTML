@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <script src="https://kit.fontawesome.com/55171a36f0.js" crossorigin="anonymous"></script>
+    <style>
+        #btn1{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1" ><i class="fas fa-angle-up">증가</i></button>
+    <button id="btn2">바꾸기</button>
+    <div id="res">0</div>
+    <script>
+        var num = 0;
+        $('#btn1').click(function(){ 
+            var str = $('#btn1').text();
+            console.log($('#btn1').html());
+            if(str === '증가'){
+                num++;
+                console.log(num);
+                $('#res').text(num);
+            }else if(str === '감소'){
+                num--;
+                console.log(num);
+                $('#res').text(num);
+            }    
+        })
+        $('#btn2').click(function(){
+            var str = $('#btn1').text();
+            if(str === '증가'){
+                $('#btn1').html('<button id="btn1" ><i class="fas fa-angle-down"></i></button>');
+            }else if(str === '감소'){
+                $('#btn1').html('');
+                $('#btn1').html('<i class="fas fa-angle-up"></i>');
+            } 
+        })
+    </script>
+</body>
+</html>
