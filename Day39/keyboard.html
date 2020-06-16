@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <input type="text">
+    <script>
+        $(function(){
+            /*$(document).keydown(function(){
+                console.log('키 다운');
+            })
+            // 키보드를 눌렀을 때
+            $(document).keyup(function(){
+                console.log('키 업');
+            })
+            // 키보드를 땠을 때
+            $(document).keypress(function(){
+                console.log('키 프레스');
+            })
+            // 키보드를 눌렀을 때(특수키는 인식 x | 대소문자 구분 o)*/
+            $('input').keyup(function(){
+
+            })
+            $('input').keypress(function(event){
+                if(event.keyCode >= 48 && event.keyCode <= 57){
+                    return true;
+                }else{
+                    return false;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

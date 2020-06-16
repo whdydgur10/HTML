@@ -30,7 +30,8 @@
             var cnt = 1;
             var index = 1;
             $('#add').click(function(){
-                var str = '<div>' + '<input type="text" class="input'+index+'">' + '<button class="btn'+index+'">클릭' + index + '</button>' + '</div>';
+                var str = '<div>' + '<input type="text" class="input'+index+'">' 
+                + '<button class="btn'+index+'">클릭' + index + '</button>' + '</div>';
                 index++;
                 $('.box').append(str);
                 $('.box').children().last().find('button').click(function(){

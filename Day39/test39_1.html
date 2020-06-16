@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test39_1</title>
+    <script src="../jquery.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="title"><h1>설문지</h1></div>
+    <div class="question">
+        <div class="main-q">
+            <div>질문1</div>
+            <div class="sub-q">
+                <span>질문1-1</span>
+                <input type="text" placeholder="질문을 입력하세요">
+                <button>확인</button>
+                <button class="sub-q-del">삭제</button>
+            </div>
+            <button class="sub-q-add">서브질문 추가</button>
+        </div>
+    </div>
+    <button class="main-q-add">메인질문 추가</button>
+    <script>
+        $(function(){
+            var mainArr = [1];
+            $('.main-q-add').click(function(){
+                mainArr.push(1);
+                var mainq = '<div class="main-q"><div>질문'+mainArr.length+'</div><div class="sub-q">'
+                    +'<span>질문'+mainArr.length+'-1</span> <input type="text" placeholder="질문을 입력하세요">' 
+                    +' <button>확인</button> <button class="sub-q-del">삭제</button></div></div></div>'
+                    +'<button class="sub-q-add">서브질문 추가</button>';
+                $('.question').append(mainq);
+                subadd($('.main-q').last().find('.sub-q-add'));
+                subdel($('.main-q').last().find('.sub-q-del'));
+                // subadd를 실행한다. main-q클래스중 마지막 클래스안에서 sub-q-add클래스를 찾아 적용한다.
+            })
+            subadd($('.sub-q-add'));
+            function subadd(obj){
+                obj.click(function(){
+                    var main = $(this).parent().children().eq(0).text().substring(2);
+                    // main은 현재 클릭한 버튼의 부모의 자식들 중 0번지의 텍스트를 가져와 2번지의 글자
+                    main = parseInt(main);
+                    mainArr[main-1]++;
+                    var subq = '<div class="sub-q">'
+                        +'<span>질문'+main+'-'+mainArr[main-1]+'</span> <input type="text" placeholder="질문을 입력하세요">' 
+                        +' <button>확인</button> <button class="sub-q-del">삭제</button></div>';
+                    $(this).prev().after(subq);
+                    subdel($(this).prev().find('.sub-q-del'));
+                })
+            }
+            subdel($('.sub-q-del'));
+            function subdel(obj){
+                obj.click(function(){
+                    var main = $(this).parent().children().eq(0).text().substring(2);
+                    main = parseInt(main);
+                    mainArr[main-1]--;
+                    $(this).parent().remove();
+                    var list = $('.main-q').eq(main-1).find('.sub-q');
+                    for(var i = 0; i < list.length; i++) {
+                        list.eq(i).children().eq(0).text('질문'+main+'-'+(i+1));
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+</html>
