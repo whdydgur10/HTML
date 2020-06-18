@@ -1,0 +1,34 @@
+$(function(){
+    $('html').scrollTop(0,0);
+    $('.close-banner-whale').click(function(e){
+        e.preventDefault();
+        $('.box-whale').addClass('display-none');
+        // 매개변수 e에 대한 전에 있는 이벤트값을 기본으로 한다.
+        // close-banner-whale는 a태그 안에 있어 누르면 a태그도 같이 실행하는 것을 방지한다.
+    })
+    $('.auto-search').click(function(){
+        $('.auto-search-icon').toggleClass('auto-icon-change');
+        $('.box-auto-search').toggleClass('display-none');
+    })
+    $('.box-auto-search-off').click(function(e){
+        $('.auto-search').click();
+        e.preventDefault();
+    })
+    $('.box-auto-search-off').hover(function(){
+        $('.box-auto-search-on').toggleClass('display-block');
+    })
+    $('.menu-more').click(function(){
+        $(this).addClass('display-none');
+        $('.menu-more-open').addClass('display-inline-block');
+        $('.box-menu-list').addClass('display-block');
+        $('.set-menu-list').addClass('display-block');
+        $('.menu-filter').addClass('display-none');
+    })
+    $('.menu-more-open').click(function(){
+        $(this).removeClass('display-inline-block');
+        $('.menu-more').removeClass('display-none');
+        $('.box-menu-list').removeClass('display-block');
+        $('.set-menu-list').removeClass('display-block');
+        $('.menu-filter').removeClass('display-none');
+    })
+})

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVAR</title>
+    <link rel="stylesheet" href="css/naver.css">
+    <!-- hover이벤트가 발생된 요소와 스타일을 적용할 요소가 같은 경우는 css로 처리 다른 경우는 js로 처리
+    hover를 한 요소안에서 발생할 경우 css, 다른 요소로 갈 경우 js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/naver.js"></script>
+</head>
+<body>
+    <div class="box-whale">
+        <div class="container">
+            <a href="https://whale.naver.com/ko/?=main" class="link-whale">
+                <i class="icon-whale bg-44265f"></i>
+                <img class="img-banner-whale" width="150px" height="auto" src="https://s.pstatic.net/static/www/img/uit/2020/img_whale_banner.483e9e.png" alt="">
+                <p class="text-banner-whale">인터넷의 새로운 시작! <strong>네이버 웨일</strong>로 차원이 다른 웹서핑을 경험해보세요!
+                    <button class="down-banner-whale">다운로드</button>
+                </p>
+                <button class="close-banner-whale">3일 동안 보지 않기
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="box-container-search">
+        <div class="container">
+            <a href="//naver.com" class="logo bg-44265f" target="_blank" ></a>
+            <div class="box-search">
+                <form action="#" method="get"></form>
+                    <input type="text" class="text-search" title="검색어 입력">
+                    <a href="#" class="v-keyboard">
+                        <i class="v-keyboard-icon bg-44265f"></i>
+                        <i class="v-keyboard-icon-msg bg-44265f"></i>
+                    </a>
+                    <a href="#" class="auto-search">
+                        <i class="auto-search-icon bg-44265f"></i>
+                    </a>
+                    <button class="box-search-btn" title="검색">
+                        <i class="box-search-icon bg-44265f"></i>                      
+                    </button>
+                </form>
+                <div class="box-auto-search display-none">
+                    <div class="box-auto-search-text">현재 자동완성 기능을 사용하고 계십니다.</div>
+                    <div class="box-auto-search-menu">
+                        <a href="#" class="help">도움말</a>
+                        <span class="auto-bar"> | </span>
+                        <a href="#" class="report">신고</a>
+                        <button class="box-auto-search-off">자동완성 끄기</button>
+                        <div class="box-auto-search-on">기능을 다시 켤 때는 <img src="../image/검색창.png" alt="">을 클릭하세요</div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-service">
+                <a href="#" class="set-homepage">네이버를 시작페이지로</a>
+                <span class="service-bar"> | </span>
+                <a href="https://jr.naver.com/" class="link-jrnaver bg-44265f"></a>
+                <a href="https://happybean.naver.com/" class="link-happybean bg-44265f"></a>
+            </div>
+        </div>
+    </div>
+    <div class="box-container-menu">
+        <div class="container">
+            <div class="box-menu">
+                <div class="box-menu1">
+                    <a href=""><i class="box-menu-mail bg-44265f"></i>메일</a>
+                    <a href="">카페</a>
+                    <a href="">블로그</a>
+                    <a href="">지식iN</a>
+                    <a href="">쇼핑</a>
+                    <a href="">Pay</a>
+                    <a href=""><i class="box-menu-tv bg-44265f"></i>TV</a>
+                </div>
+                <div class="box-menu2">
+                    <a href="">사전</a>
+                    <a href="">뉴스</a>
+                    <a href="">증권</a>
+                    <a href="">부동산</a>
+                    <a href="">지도</a>
+                    <a href="">영화</a>
+                    <a href="">뮤직</a>
+                    <a href="">책</a>
+                    <a href="">웹툰</a>
+                </div>
+                <button class="menu-more">더보기<i class="menu-more-icon bg-44265f"></i></button>
+                <button class="menu-more-open">접기<i class="menu-more-open-icon bg-44265f"></i></button>
+            </div>
+            <div class="set-menu-list">
+                <button class="all-menu-list">서비스 전체보기</button>
+                <button class="set-menu">메뉴설정</button>
+            </div>
+            <button class="menu-filter"><i class="menu-filter-icon1 bg-44265f"></i>검색어 필터 설정이 필요합니다<i class="menu-filter-icon2 bg-44265f"></i></button>
+        </div>
+        <div class="box-menu-list">
+            <div class="menu-list-table">
+                <dl class="menu-list">
+                    <dt>ㄱ-ㄷ</dt>
+                    <dd><a href="#">그라폴리오</a></dd>
+                    <dd><a href="#">날씨</a></dd>
+                    <dd><a href="#">네이버 예약</a></dd>
+                    <dd><a href="#">네이버 클라우드</a></dd>
+                    <dd><a href="#">네이버 포스트</a></dd>
+                    <dd><a href="#">뉴스</a></dd>
+                    <dd><a href="#">데이터랩</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>ㄹ-ㅅ</dt>
+                    <dd><a href="#">만화/웹툰</a></dd>
+                    <dd><a href="#">메모</a></dd>
+                    <dd><a href="#">뮤직</a></dd>
+                    <dd><a href="#">밴드</a></dd>
+                    <dd><a href="#">부동산</a></dd>
+                    <dd><a href="#">북마크</a></dd>
+                    <dd><a href="#">소프트웨어</a></dd>
+                    <dd><a href="#">스포츠</a></dd>
+                    <dd><a href="#">시리즈</a></dd>
+                    <dd><a href="#">시리즈on</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>ㅇ-ㅈ</dt>
+                    <dd><a href="#">영화</a></dd>
+                    <dd><a href="#">오디오클립</a></dd>
+                    <dd><a href="#">오피스</a></dd>
+                    <dd><a href="#">웹소설</a></dd>
+                    <dd><a href="#">자동차</a></dd>
+                    <dd><a href="#">주소록</a></dd>
+                    <dd><a href="#">증권(금융)</a></dd>
+                    <dd><a href="#">지도</a></dd>
+                    <dd><a href="#">지식백과</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>ㅊ-ㅎ</dt>
+                    <dd><a href="#">책</a></dd>
+                    <dd><a href="#">캘린더</a></dd>
+                    <dd><a href="#">학습정보</a></dd>
+                    <dd><a href="#">항공권</a></dd>
+                    <dd><a href="#">호텔</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>A-Z</dt>
+                    <dd><a href="#">modoo![모두]</a></dd>
+                    <dd><a href="#">MY구독</a></dd>
+                    <dd><a href="#">PC게임</a></dd>
+                    <dd><a href="#">TV연예</a></dd>
+                    <dd><a href="#">V LIVE</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>사전</dt>
+                    <dd><a href="#">사전</a></dd>
+                    <dd><a href="#">국어사전</a></dd>
+                    <dd><a href="#">영어/영영사전</a></dd>
+                    <dd><a href="#">일본어사전</a></dd>
+                    <dd><a href="#">중국어사전</a></dd>
+                    <dd><a href="#">한자사전</a></dd>
+                    <dd><a href="#">사전 더보기</a></dd>
+                </dl>
+                <dl class="menu-list">
+                    <dt>인기/신규 서비스</dt>
+                    <dd><a href="#">네이버플러스 멤버십</a></dd>
+                    <dd><a href="#">클로바더빙</a></dd>
+                    <dd><a href="#">인플루언서 검색</a></dd>
+                    <dd><a href="#">Keep</a></dd>
+                    <dd><a href="#">VIBE</a></dd>
+                    <dd><a href="#">웨일</a></dd>
+                    <dd><a href="#">파파고</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="box-container-main">
+        <div class="container">
+            <div class="box-left-main">
+                <div class="banner1">
+                    <a href="#" target="_blank"><img src="../image/banner1.png" alt=""></a>
+                </div>
+                <div class="new1">
+                    
+                </div>
+            </div>
+            <div class="box-right-main">
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            
+        </div>
+    </div>
+    <script>
+        $(function(){
+           $('.box-auto-search-off:hover').click(function(){
+                
+           })
+        })
+    </script>
+</body>
+</html>
