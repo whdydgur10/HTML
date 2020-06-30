@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .box{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        button{
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>이동</button>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                $('.box').animate({'right':'0'},3000,function(){
+                    $(this).animate({'right':'89%'});
+                });
+                // animate에 float: right;와 같은 숫자로 표현할 수 없는 속성들을 적용할 수 없다. transition, transfrom
+            })
+        })
+    </script>
+</body>
+</html>

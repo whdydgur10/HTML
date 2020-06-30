@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rolling</title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+        }
+        .main-box{
+            margin: 0 auto;
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+            position: relative;
+            /* overflow: hidden; */
+        }
+        .width-box{
+            width: 300%;
+            height: 100%;
+            position: absolute;
+            left: -900px;
+        }
+        .sub-box{
+            width: 300px;
+            height: 100%;
+            background-color: blueviolet;
+            float: left;
+        }
+        .sub-box:nth-of-type(2){
+            background-color: burlywood;
+        }
+        .sub-box:nth-of-type(3){
+            background-color: cornflowerblue;
+        }
+        button{
+            margin-top: 50px;
+            margin-left: 550px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div class="width-box">
+            <div class="sub-box"></div>
+            <div class="sub-box"></div>
+            <div class="sub-box"></div>
+        </div>
+    </div>
+    <button>이동</button>
+    <script>
+        $(function(){
+            // var cnt = 2;
+            // $('button').click(function(){
+            //     var leftside = cnt * -300;
+            //     if(cnt < -1) {
+            //         var time = setInterval(function(){
+            //             cnt++;
+            //             var rightside = cnt * -300;
+            //             $('.width-box').animate({'left':rightside+'px'},3000)
+            //             if(cnt > 2){
+            //                 clearInterval(time);
+            //                 cnt = 2;
+            //             }
+            //         },1000)
+            //     }else if(cnt > -2){
+            //         $('.width-box').animate({'left':leftside+'px'},1000)
+            //     cnt--;
+            //     }
+            // })
+            function interval(){
+                return setInterval(function(){
+                $('.sub-box').first().animate({'left':'-600px'},1000,function(){
+                    $('.sub-box').last().detach().prependTo('.width-box');
+                    $(this).removeAttr('style');
+                })
+            },1100)
+            }
+            var move = interval();
+            $('.main-box').hover(function(){
+                clearInterval(move);
+                },function(){
+                    move = interval();
+            })
+        })
+    </script>
+</body>
+</html>

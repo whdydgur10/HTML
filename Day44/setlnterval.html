@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setlnterval</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .box-timer{
+            width: 400px;
+            border: 1px solid black;
+            margin: 15% 30%;
+            background-color: black;
+            position: relative;
+        }
+        .time{
+            width: calc(100% - 20px);
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            box-sizing: border-box;
+            padding-left: 100px;
+            background-color: white;
+        }
+        .time p{
+            display: inline-block;
+            font-size: 30px;
+        }
+        .start, .stop, .reset, .save{
+            width: calc(50% - 18px);
+            height: 100px;
+            border: 1px solid black;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            padding-top: 10px;
+            cursor: pointer;
+            background-color: blue;
+        }
+        .stop, .save{
+            margin-right: 10px;
+            background-color: red;
+        }
+        .reset{
+            background-color: yellow;
+        }
+        .save{
+            background-color: green;
+        }
+        .save-list{
+            width: 400px;
+            height: 340px;
+            border: 1px solid gray;
+            position: absolute;
+            right: -410px;
+            top: 0;
+        }
+        .save-list-head{
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 40px;
+            background-color: gray;
+        }
+        .save-list-body{
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            overflow: auto;
+            height: 290px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-timer">
+        <div class="time">
+            <p class="h">00</p>
+            <p>:</p>
+            <p class="m">00</p>
+            <p>:</p>
+            <p class="s">00</p>
+            <p class="ms">00</p>
+        </div>
+        <div class="start">start</div>
+        <div class="stop">stop</div>
+        <div class="reset">reset</div>
+        <div class="save">save</div>
+        <div class="save-list">
+            <div class="save-list-head">기록</div>
+            <div class="save-list-body"></div>
+        </div>
+    </div>
+    <script>
+        var h = 0;
+        var m = 0;
+        var s = 0;
+        var ms = 0;
+        var Interval;
+        var timeArr = [];
+        $('.start').click(function(){
+            Interval = setInterval(function(){
+                ms++;
+                // if(ms < 10){
+                //         ms = '0'+ms;
+                //     }
+                //     $('.ms').text(ms);
+                printTime('.ms',ms);
+                if(ms == 100){
+                    s++;
+                    ms = 0;
+                    $('.ms').text('0'+ms);
+                    // if(s < 10){
+                    //     s = '0'+s;
+                    // }
+                    // $('.s').text(s);
+                    printTime('.s',s);
+                }
+                if(s == 60){
+                    m++;
+                    s = 0;
+                    $('.s').text('0'+s);
+                    // if(m < 10){
+                    //     m = '0'+m;
+                    // }
+                    // $('.m').text(m);
+                    printTime('.m',m);
+                }
+                if(m == 60){
+                    h++;
+                    m = 0;
+                    $('.m').text('0'+m);
+                    // if(h < 10){
+                    //     h = '0'+h;
+                    // }
+                    // $('.h').text(h);
+                    printTime('.h',h);
+                }
+                if(h == 24){
+                    h = 0;
+                    $('.h').text('0'+h);
+                }
+            },10)    
+        })
+        $('.stop').click(function(){
+                clearInterval(Interval);
+        })
+        $('.reset').click(function(){
+                alert('초기화됩니다.')
+                ms = 0;
+                s = 0;
+                m = 0;
+                h = 0;
+                $('.ms').text('0'+ms);
+                $('.s').text('0'+s);
+                $('.m').text('0'+m);
+                $('.h').text('0'+h);
+                $('.stop').click();
+                $('.save-list-body').empty();
+            })
+        $('.save').click(function(){
+            ms = $('.ms').text();
+            s = $('.s').text();
+            m = $('.m').text();
+            h = $('.h').text();
+            var str = '<div>' + h + ':' + m + ':' + s + ' '+ ms +' </div>';
+            $('.save-list-body').append(str);
+        })
+        // var cnt = 1;
+        // $('.save').click(function(){
+        //     var str = getTime();
+        //     cnt = cnt % 3;
+        //     $('.box'+cnt).html(str);
+        //     cnt++;
+        //     timeArr.push(str);
+        // })
+        function printTime(selector, time){
+            if(time < 10) {
+                time = '0'+time;
+            }
+            $(selector).text(time);
+        }
+        // printTime이라는 함수를 만들고 변수로 선택자와 시간을 넣어 효율적으로 사용하도록 한다.
+        function getTime(){
+            var str = '';
+            str += getStr(h) + ' : ' + getStr(m) + ' : ' + getStr(s) + ' ' + getStr(ms);
+            return str;
+        }
+        function getStr(time){
+
+        }
+    </script>
+</body>
+</html>

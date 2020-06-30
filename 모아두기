@@ -1,0 +1,199 @@
+<div class="theme-type">
+                    <div class="theme-type-head">
+                        <div class="theme-type-title">
+                            <div class="left-title">
+                                <strong>오늘 읽을만한 글</strong>
+                                <span>주제별로 분류된 다양한 글 모음</span> 
+                            </div>
+                            <div class="right-title">
+                                <strong>2,185</strong>
+                                <span>개의 글</span>
+                                <a href="" class="set-theme">관심주제 설정</a>
+                            </div>
+                        </div>
+                        <div class="theme-type-nav">
+                            <a href="#" class="left-type"><i class="icon-left-type bg-44265f"></i></a>
+                            <a href="#" class="right-type"><i class="icon-right-type bg-44265f"></i></a>
+                            <div class="hide-type-nav">
+                                <div class="low-type-nav">
+                                    <div class="type-nav">
+                                        <a href="#" class="theme-enter">엔터</a>
+                                        <a href="#" class="theme-sports">스포츠</a>
+                                        <a href="#" class="theme-car">자동차</a>
+                                        <a href="#" class="theme-cartoon">웹툰</a>
+                                        <a href="#" class="theme-finance">경제M</a>
+                                        <a href="#" class="theme-food">푸드</a>
+                                        <a href="#" class="theme-game">게임</a>
+                                        <a href="#" class="theme-movie">영화</a>
+                                    </div>
+                                    <div class="type-nav">
+                                        <a href="#" class="theme-JOB&">JOB&</a>
+                                        <a href="#" class="theme-tech">테크</a>
+                                        <a href="#" class="theme-travel">여행+</a>
+                                        <a href="#" class="theme-science">과학</a>
+                                        <a href="#" class="theme-living">리빙</a>
+                                        <a href="#" class="theme-health">건강</a>
+                                        <a href="#" class="theme-busness">비즈니스</a>
+                                        <a href="#" class="theme-marry">연애·결혼</a>
+                                    </div>
+                                    <div class="type-nav">
+                                        <a href="#" class="theme-book">책문화</a>
+                                        <a href="#" class="theme-parent">부모i</a>
+                                        <a href="#" class="theme-law">법률</a>
+                                        <a href="#" class="theme-beauty">패션뷰티</a>
+                                        <a href="#" class="theme-animal">동물공감</a>
+                                        <a href="#" class="theme-design">디자인</a>
+                                        <a href="#" class="theme-china">중국</a>
+                                        <a href="#" class="theme-FARM">FARM</a>
+                                    </div>
+                                    <div class="type-nav">
+                                        <a href="#" class="theme-perfomence">공연전시</a>
+                                        <a href="#" class="theme-with">함께N</a>
+                                        <a href="#" class="theme-school">스쿨잼</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            .theme-type{
+    padding: 35px 0 27px;
+    letter-spacing: -.25px;
+    height: 400px;
+}
+.theme-type-title{
+    padding-bottom: 17px;
+}
+.left-title{
+    float: left;
+}
+.left-title>span{
+    margin-left: 8px;
+    color: grey;
+}
+.right-title{
+    float: right;
+}
+.right-title>span{
+    position: relative;
+    color: gray;
+}
+.right-title>span::after{
+    position: absolute;
+    top: 4px;
+    right: -7px;
+    width: 1px;
+    height: 12px;
+    content: '';
+    background-color: #e4e8eb;
+}
+.set-theme{
+    margin-left: 14px;
+    position: relative;
+    color: #505050
+}
+.set-theme::before{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: 4px;
+    content: '';
+    vertical-align: top;
+    vertical-align: -1px;
+    opacity: .7;
+    background-position: -458px -223px;
+}
+.set-theme:hover::before{
+    opacity: 1;
+}
+/* .theme-type-nav{
+    border: 1px solid #dae1e6;
+    height: 49px;
+    position: relative;
+    box-sizing: border-box;
+    width: 750px;
+}
+.left-type{
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    left: -18px;
+}
+.icon-left-type{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -47px -357px;
+}
+.right-type{
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    right: -18px;
+}
+.icon-right-type{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    background-position: -92px -357px;
+}
+.hide-type-nav{
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
+.low-type-nav{
+    width: 500%;
+    height: 100%;
+}
+.type-nav{
+    display: flex;
+    float: left;
+}
+.type-nav a{
+    width: 94px;
+    display: block;
+    height: 49px;
+    border-right: 1px solid #dae1e6;
+    line-height: 49px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    float: left;
+    text-decoration: none;
+    box-sizing: border-box;
+} */
+
+// var typepage = 0;
+    // var s;
+    // function sidetype(typepage){
+    //     if(typepage == 0) {
+    //         $('.left-type').addClass('display-none');
+    //     }else{
+    //         $('.left-type').removeClass('display-none');
+    //     }
+    //     if(typepage == 3) {
+    //         $('.right-type').addClass('display-none');
+    //     }else{
+    //         $('.right-type').removeClass('display-none');
+    //     }
+    // }
+    // $('.left-type').addClass('display-none');
+    // $('.left-type').click(function(){
+    //     typepage--;
+    //     s = -750 * typepage;
+    //     $('.type-nav').first().animate({'margin-left': s + 'px'},1000,function(){})
+    //     sidetype(typepage);
+    //     console.log(typepage);
+    // })
+    // $('.right-type').click(function(){
+    //     typepage++;
+    //     s = -750 * typepage;
+    //     $('.type-nav').first().animate({'margin-left': s + 'px'},1000,function(){});
+    //     sidetype(typepage);
+    //     console.log(typepage);
+    // })

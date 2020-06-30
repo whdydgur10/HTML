@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rolling</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .add{
+            width: 750px;
+            height: 135px;
+            margin: 50px auto 0;
+            border: 1px solid black;
+            
+        }
+        .link-add{
+            display: block;
+            height: 135px;
+        }
+        .link-add img{
+            float: left;
+        }
+        .link-add:first-of-type{
+            margin-top: -270px;
+        }
+    </style>
+</head>
+<body>
+    <div class="add">
+        <a href="#" class="link-add"><img src="https://ssl.pstatic.net/tveta/libs/1282/1282632/f5d52b67356d647d98f6_20200622094726737.jpg" alt="" width="750px" height="135px"></a>
+        <a href="#" class="link-add"><img src="https://ssl.pstatic.net/tveta/libs/1282/1282740/b7de4ced147a82421056_20200618185424423.jpg" alt="" width="750px" height="135px"></a>
+        <a href="#" class="link-add"><img src="https://ssl.pstatic.net/tveta/libs/1282/1282632/3e1512f09fe372577f5e_20200622094720733.jpg" alt="" width="750px" height="135px"></a>
+    </div>
+    <script>
+        $(function(){
+            setInterval(function(){
+                $('.link-add').first().animate({'margin-top':'-135px'},300,function(){
+                    $('.link-add').last().detach().prependTo('.add').css('margin-top','-270px');
+                    // eatach() : 해당 html코드 잘라내기
+                    // $(this).removeAttr('style');
+                });
+            },1000)
+        })
+    </script>
+</body>
+</html>
