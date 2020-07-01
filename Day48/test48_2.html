@@ -249,7 +249,7 @@
             var counts = [];
             $('.list-menu a').click(function(){
                 var name = $(this).text();
-                var price = $(this).next().text();
+                var price = $(this).parent().children().last().text();
                 if($.inArray(name, names) != -1){
                     var index = names.indexOf(name);
                     var calc = prices[index];
