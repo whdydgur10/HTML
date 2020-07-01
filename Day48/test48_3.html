@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            width: 700px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+            position: relative;
+        }
+        .link-login{
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            top: 220px;
+            left: 300px;
+        }
+        .link-login:hover{
+            text-decoration: underline;
+        }
+        .login{
+            width: 400px;
+            height: 300px;
+            border: 3px solid green;
+            position: absolute;
+            top: 100px;
+            left: 150px;
+            z-index: 10;
+            background-color: white;
+        }
+        .btn-x{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+        .x{
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+            background-repeat: no-repeat;
+            background-size: 471px 442px;
+            background-position: -58px -427px;
+            width: 14px;
+            height: 14px;
+            content: '';
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .id, .pw{
+            margin-top: 40px;
+            margin-left: 10px;
+            width: 100%;
+            font-size: 20px;
+        }
+        .id{
+            margin-left: 27px;
+            padding-right: 27px;
+        }
+        #id, #pw{
+            width: 250px;
+            height: 30px;
+        }
+        
+        .btn{
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 30px;
+            text-align: center;
+        }
+        .in, .out{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+            line-height: 50px;
+            margin-left: 30px;
+        }
+        .display-none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="#" class="link-login">로그인</a>
+        <div class="login display-none">
+            <div class="btn-x">
+                <i class="x"></i>
+            </div>
+            <form action="" method="GET">
+                <div class="id">
+                    아이디 : <input type="text" id="id">
+                </div>
+                <div class="pw">
+                    비밀번호 : <input type="password"" id="pw">
+                </div>
+            </form>
+            <div class="btn">
+                <a href="#" class="in">확인</a>
+                <a href="#" class="out">취소</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.link-login').click(function(){
+                if($(this).text() == '로그인'){
+                    $('.login').toggleClass('display-none');
+                }
+                else if($(this).text() == '로그아웃'){
+                    $(this).text('로그인');
+                }
+            })
+            $('.btn-x').click(function(){
+                $('.login').toggleClass('display-none');
+            })
+            $('.in').click(function(){
+                $('.login').toggleClass('display-none');
+                $('.link-login').text('로그아웃');
+            })
+            $('.out').click(function(){
+                $('.login').toggleClass('display-none');
+            })
+            
+        })
+    </script>
+</body>
+</html>

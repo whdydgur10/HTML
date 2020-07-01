@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <script src="../jquery.js"></script>
+    <script src="https://kit.fontawesome.com/55171a36f0.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            width: 1000px;
+            height: 500px;
+            border: 5px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+        .small-menu{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .small-menu:hover{
+            background-color: rgb(206, 206, 206);
+        }
+        
+        ul{
+            list-style: none;
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;
+            position: absolute;
+            right: 10px;
+            top: 70px;
+            text-align: center;
+            font-size: 30px;
+        }
+        li{
+            margin-top: 20px;
+            position: relative;
+        }
+        button{
+            border: none;
+            background-color: transparent;
+            font-size: 30px;
+            cursor: pointer;
+            outline: none;
+        }
+        .display-none{
+            display: none;
+        }
+        em{
+            display: block;
+            font-size: 10px;
+            position: absolute;
+            top: 40px;
+            left: 130px;
+        }
+        span{
+            font-size: 15px;
+        }
+        .x{
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+            background-repeat: no-repeat;
+            background-size: 471px 442px;
+            background-position: -58px -427px;
+            width: 14px;
+            height: 14px;
+            content: '';
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .order{
+            width: 500px;
+            height: 100%;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .order-head{
+            font-size: 50px;
+        }
+        .order-head, .order-body{
+            border-bottom: 1px solid black;
+        }
+        .order-body{
+            width: 100%;
+            height: 400px;
+            overflow: auto;
+        }
+        .order-body span{
+            margin-right: 10px;
+        }
+        .order-menu>span{
+            font-size: 30px;
+        }
+        .order-footer{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+        }
+        .box-amount{
+            float: left;
+            margin-left: 20px;
+        }
+        .box-calculate{
+            float: right;
+        }
+        .calculate, .Middle-settlement{
+            height: 100%;
+            padding: 5px;
+            border-left: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="order">
+            <div class="order-head">
+                주문서
+            </div>
+            <div class="order-body">
+            </div>
+            <div class="order-footer">
+                <div class="box-amount">
+                    총 금액 : <span class="allAmount">0</span>
+                </div>
+                <div class="box-calculate">
+                    <a href="#" class="calculate">정산</a>
+                    <a href="#" class="Middle-settlement">중간정산</a>
+                </div>
+            </div>
+        </div>
+        <div class="small-menu"><i class="fas fa-bars"></i></div>
+        <div class="box-menu display-none">
+            <ul class="menu">
+                <li><a href="#" class="link-hamburger">햄버거류</a></li>
+                <li><a href="#" class="link-pizza">피자류</a></li>
+                <li><a href="#" class="link-chicken">치킨류</a></li>
+                <li><a href="#" class="link-beverage">음료류</a></li>
+            </ul>
+        </div>
+        <div class="list-menu">
+            <ul class="hamburger display-none">
+                <li><a href="#" class="bulgogi-burger">불고기버거</a>
+                    <em>3000</em>
+                </li>
+                <li><a href="#" class="cheese-burger">치즈버거</a>
+                    <em>3500</em>
+                </li>
+                <li><a href="#" class="chicken-burger">치킨버거</a>
+                    <em>2800</em>
+                </li>
+                <li><a href="#" class="beef-burger">소고기버거</a>
+                    <em>4000</em>
+                </li>
+                <li><button class="return">돌아가기</button></li>
+            </ul>
+            <ul class="pizza display-none">
+                <li><a href="#" class="pepperoni-pizza">페퍼로니피자</a>
+                    <em>12000</em>
+                </li>
+                <li><a href="#" class="bulgogi-pizza">불고기피자</a>
+                    <em>11000</em>
+                </li>
+                <li><a href="#" class="cheese-pizza">치즈피자</a>
+                    <em>10500</em>
+                </li>
+                <li><a href="#" class="combination-pizza">콤비네이션피자</a>
+                    <em>10000</em>
+                </li>
+                <li><button class="return">돌아가기</button></li>
+            </ul>
+            <ul class="chicken display-none">
+                <li><a href="#" class="fried-chicken">후라이드치킨</a>
+                    <em>8000</em>
+                </li>
+                <li><a href="#" class="seasoning-chicken">양념치킨</a>
+                    <em>9000</em>
+                </li>
+                <li><a href="#" class="fried-seasoning-chicken">반반치킨</a>
+                    <em>9000</em>
+                </li>
+                <li><a href="#" class="salt-chicken">소금치킨</a>
+                    <em>8500</em>
+                </li>
+                <li><button class="return">돌아가기</button></li>
+            </ul>
+            <ul class="beverage display-none">
+                <li><a href="#" class="cola">콜라</a><span>(1.5L)</span>
+                    <em>2000</em>
+                </li>
+                <li><a href="#" class="cider">사이다</a><span>(1.5L)</span>
+                    <em>2000</em>
+                </li>
+                <li><a href="#" class="fanta">환타</a><span>(1.5L)</span>
+                    <em>2000</em>
+                </li>
+                <li><a href="#" class="mirinda">미린다</a><span>(355mL)</span>
+                    <em>700</em>
+                </li>
+                <li><button class="return">돌아가기</button></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.small-menu').click(function(){
+                $('.box-menu').toggleClass('display-none');
+                $('ul').addClass('display-none')
+                $('.menu').removeClass('display-none');
+                $('.small-menu i').toggleClass('fas fa-bars');
+                $('.small-menu i').toggleClass('x');
+            })
+            $('.link-hamburger').click(function(){
+                $(this).parents('ul').addClass('display-none');
+                $('.hamburger').removeClass('display-none');
+            })
+            $('.link-pizza').click(function(){
+                $(this).parents('ul').addClass('display-none');
+                $('.pizza').removeClass('display-none');
+            })
+            $('.link-chicken').click(function(){
+                $(this).parents('ul').addClass('display-none');
+                $('.chicken').removeClass('display-none');
+            })
+            $('.link-beverage').click(function(){
+                $(this).parents('ul').addClass('display-none');
+                $('.beverage').removeClass('display-none');
+            })
+            $('.return').click(function(){
+                $(this).parents('ul').addClass('display-none');
+                $('.menu').removeClass('display-none');
+            })
+            var names = [];
+            var prices = [];
+            var counts = [];
+            $('.list-menu a').click(function(){
+                var name = $(this).text();
+                var price = $(this).next().text();
+                if($.inArray(name, names) != -1){
+                    var index = names.indexOf(name);
+                    var calc = prices[index];
+                    prices[index] = parseInt(calc) + parseInt(price);
+                    calc = counts[index];
+                    counts[index] = parseInt(calc) + 1;
+                    $('.'+name+'-count').text(counts[index]);
+                    // 있음
+                }else{
+                    names.push(name);
+                    prices.push(price);
+                    counts.push(1);
+                    $('.order-body').append('<div class="order-menu">'
+                    +'<span class="'+name+'-name">'+name+'</span>'
+                    +'<span>:</span>'
+                    +'<span class="'+name+'-count">1</span></div>')
+                    // 없음
+                }
+                var allAmount = 0;
+                for(var i = 0; i < prices.length; i++){
+                    var amount = parseInt(prices[i]);
+                    allAmount += amount;
+                }
+                $('.allAmount').text(allAmount);
+            })
+            $('.calculate').click(function(){
+                names = [];
+                prices = [];
+                counts = [];
+                $('.allAmount').text(0);
+                $('.order-body').empty();
+            })
+        })
+    </script>
+</body>
+</html>

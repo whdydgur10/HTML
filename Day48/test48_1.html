@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rolling</title>
+    <script src="../jquery.js"></script>
+    <script src="https://kit.fontawesome.com/55171a36f0.js" crossorigin="anonymous"></script>
+    <style>
+        .hide-box{
+            width: 400px;
+            height: 200px;
+            position: relative;
+            border: 3px solid red;
+            z-index: 5;
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        .main-box{
+            width: 400%;
+            height: 100%;
+            position: absolute;
+            left: -400px;
+        }
+        .sub-box{
+            width: 400px;
+            height: 100%;
+            float: left;
+        }
+        button{
+            width: 70px;
+            height: 40px;
+            position: absolute;
+            top: 60px;
+            z-index: 10;
+        }
+        .next{
+            right: 0;
+        }
+        .move-left{
+            top: 100px;
+        }
+        .move-right{
+            right: 0;
+            top: 100px;
+        }
+        .box1{
+            background-image: url(http://blogfiles.naver.net/MjAyMDAxMzFfMTY1/MDAxNTgwNDUwMjg2NTM5.x4zNYLh9Mf0xDEaYIaPg2Afe18jqQbl6JomrV0ORR4gg.8yLECRfuwRZVs_lDdCQeCjcHW4uFKN9cE90_8caQmeUg.JPEG.555gamm/%BB%E7%B0%FA%B1%D7%B8%B21.jpg);
+            background-size: contain;
+        }
+        .box2{
+            background-image: url(http://blogfiles.naver.net/20130214_273/edagallery09_1360806437730S76uj_JPEG/2009050501g.jpg);
+            background-size: contain;
+        }
+        .box3{
+            background-image: url(http://blogfiles.naver.net/MjAxOTEwMzFfMTA0/MDAxNTcyNDY2NjY5NDUw.OZANZHnHzjKc7HvcMyQgOxQyhCXMQ4whCl2PhEciniAg.rDXPcC3KJrTPCkVm611MiCq-3CRWQbthfoRDzO0eTv4g.JPEG.sunghee008/1572466667834.jpg);
+            background-size: contain;
+        }
+        .box4{
+            background-image: url(http://blogfiles.naver.net/MjAxOTA0MDVfMTYx/MDAxNTU0MzkzMzI1NDEw.Vhvt6MOqG0JeBjCyHemUT3LHgaNzIaAh1dKu0803BU4g.INhZNvwT5GP8S8R8oFspjB69fVq8ILnFDCWc4wY2-8kg.JPEG.cheongchunilhwa/output_784148357.jpg);
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="hide-box">
+        <button class="prev"><i class="fas fa-angle-left"></i></button>
+        <button class="move-left"><i class="fas fa-fast-backward"></i></button>
+        <button class="next"><i class="fas fa-angle-right"></i></button>
+        <button class="move-right"><i class="fas fa-fast-forward"></i></button>
+        <div class="main-box">
+            <div class="sub-box box1"></div>
+            <div class="sub-box box2"></div>
+            <div class="sub-box box3"></div>
+            <div class="sub-box box4"></div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var isRight = false;
+            var movecontrol;
+            function move(isRight){
+                if(isRight == true){
+                    return setInterval(function(){
+                    if(!$('.sub-box').first().is(':animated')){
+                        $('.sub-box').first().animate({'margin-left':'400px'},1000,function(){
+                            $('.sub-box').last().detach().prependTo('.main-box');
+                            $(this).removeAttr('style');
+                            })
+                        }
+                    },2000)
+                }
+                else{
+                    return setInterval(function(){
+                    if(!$('.sub-box').first().is(':animated')){
+                        $('.sub-box').first().animate({'margin-left':'-400px'},1000,function(){
+                            $('.sub-box').first().detach().appendTo('.main-box');
+                            $(this).removeAttr('style');
+                        })
+                    }
+                },2000)
+                }
+            }
+            // function moveLeft(){
+            //     return setInterval(function(){
+            //         if(!$('.sub-box').first().is(':animated')){
+            //             $('.sub-box').first().animate({'margin-left':'-400px'},1000,function(){
+            //                 $('.sub-box').first().detach().appendTo('.main-box');
+            //                 $(this).removeAttr('style');
+            //             })
+            //         }
+            //     },2000)
+            // }
+            // function moveRight(){
+            //     return setInterval(function(){
+            //         if(!$('.sub-box').first().is(':animated')){
+            //             $('.sub-box').first().animate({'margin-left':'400px'},1000,function(){
+            //                 $('.sub-box').last().detach().prependTo('.main-box');
+            //                 $(this).removeAttr('style');
+            //                 })
+            //             }
+            //         },2000)
+            // }
+            var direction = 0;
+            movecontrol = move(isRight);
+            $('.main-box').hover(function(){
+                clearInterval(movecontrol);
+            },function(){
+                movecontrol = move(isRight);
+            })
+            // 호버 부모한테 적용
+            // 조상에게 z-index를 적용해도 오류발생
+            $('.prev').click(function(){
+                if(!$('.sub-box').first().is(':animated')){
+                    $('.sub-box').first().animate({'margin-left':'400px'},1000,function(){
+                        $('.sub-box').last().detach().prependTo('.main-box');
+                        $(this).removeAttr('style');
+                    })
+                }
+            })
+            $('.next').click(function(){
+                if(!$('.sub-box').first().is(':animated')){
+                    $('.sub-box').first().animate({'margin-left':'-400px'},1000,function(){
+                        $('.sub-box').first().detach().appendTo('.main-box');
+                        $(this).removeAttr('style');
+                    })
+                }
+            })
+            $('.move-left').click(function(){
+                isRight = false;
+                clearInterval(movecontrol);
+            })
+            $('.move-right').click(function(){
+                isRight = true;
+                clearInterval(movecontrol);
+                movecontrol = move(isRight);
+            })
+        })
+    </script>
+</body>
+</html>
