@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box-title{
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            margin:20px 0 10px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box-writer{
+            margin: 0 0 10px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box-board{
+            min-height: 300px;
+            border-top: 1px solid black;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .box-comments{
+            border-top: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box-comments>h3{
+            border-bottom: 1px solid black;
+            padding-left: 10px;
+        }
+        .box-comment-list{
+            margin-top: 10px;
+        }
+        .box-comment::after{
+            clear: both;
+            content: '';
+            display: block;
+            margin-bottom: 10px;
+        }
+        .box-comment>div{
+            float: left;
+            margin-left: 10px;
+        }
+        .box-comment>.box-head
+        ,.box-comment-input>.box-head{
+            float: left;
+            width: 90px;
+        }
+        .box-comment>.box-body
+        ,.box-comment-input>.box-body{
+            float: left;
+            width: 700px;
+            box-sizing: border-box;
+        }
+        .box-comment-input>.box-body{
+            height: 80px;
+            width: 610px;
+            outline: none;
+            resize: none;
+        }
+        .box-comment-input>.btn-ok{
+            width: 80px;
+            height: 80px;
+            box-sizing: border-box;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .box-comment-input>.box-head{
+            height: 100%;
+            text-align: center;
+            line-height: 81px;
+        }
+        .display-none{
+            display: none;
+        }
+        .border-top{
+            border-top: 1px solid black;
+        }
+        .box-comments-body{
+            max-width: 700px;
+            overflow: hidden;
+        }
+        .box-comments-delete{
+            font-size: 10px;
+            margin-left: 10px;
+        }
+        .box-comments-delete::after{
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+            background-repeat: no-repeat;
+            background-size: 471px 442px;
+            background-position: -58px -427px;
+            width: 14px;
+            height: 14px;
+            content: '';
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box-title">제목입니다.</div>
+        <div class="box-writer">홍길동</div>
+        <div class="box-board"></div>
+        <div class="box-comments">
+            <h3>댓글창</h3>
+            <div class="box-comment-list display-none">
+                <!-- <div class="box-comment">
+                    <div class="box-comments-head">댓글1</div>
+                    <div class="box-comments-body">안녕하세요</div>
+                    <a href="#" class="box-comments-delete"></a>
+                </div> -->
+            </div>
+            <div class="box-comment-input">
+                <div class="box-head">댓글란</div>
+                <textarea class="box-body"></textarea>
+                <button class="btn-ok">등록</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var postNum = 0;
+            var postContents = [];
+            var deleteContent;
+            var index;
+            $('.btn-ok').click(function(){
+                if($('.box-body').val() != '') {
+                    postNum++;
+                    postContents.push($('.box-body').val());
+                    if(postNum > 0) {
+                        $('.box-comment-list').removeClass('display-none');
+                        $('.box-comment-input').addClass('border-top');
+                    }
+                    $('.box-comment-list').append('<div class="box-comment">'
+                                            +'<div class="box-comments-head">댓글'+ postNum +'</div>'
+                                            +'<div class="box-comments-body">'+ $('.box-body').val() +'</div>'
+                                            +'<a href="#" class="box-comments-delete"></a></div>');
+                    $('.box-body').val('');
+                    deletePost($('.box-comment').last().children('.box-comments-delete'));
+                }
+            })
+            function deletePost(obj){
+                obj.click(function(){
+                    deleteContent = $(this).prev().text();
+                    postNum--;
+                    for(var i = 0; i < postContents.length; i++){
+                        if(postContents[i] == deleteContent){
+                            index = i;
+                        }
+                    }
+                    for(var i = index; i < postContents.length; i++){
+                        $('.box-comment').eq(i).children('.box-comments-body').text(postContents[i+1]);
+                    }
+                    $('.box-comment').last().remove();
+                    postContents.splice(index, 1);
+                })
+            }
+        })
+    </script>
+</body>
+</html>

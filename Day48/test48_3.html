@@ -131,13 +131,18 @@
                 $('.login').toggleClass('display-none');
             })
             $('.in').click(function(){
-                $('.login').toggleClass('display-none');
-                $('.link-login').text('로그아웃');
+                var id = $('#id').val();
+                var pw = $('#pw').val();
+                if(id != null && pw != null) {
+                    $('.login').toggleClass('display-none');
+                    $('.link-login').text('로그아웃');
+                }else{
+                    alert('입력되지않았습니다.')
+                }
             })
             $('.out').click(function(){
                 $('.login').toggleClass('display-none');
             })
-            
         })
     </script>
 </body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .container{
+            width: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+        .box-post{
+            font-size: 20px;
+            position: relative;
+            line-height: 40px;
+            height: 40px;
+            padding: 10px 0 ;
+        }
+        .box-post, .box-write{
+            margin: 20px;
+        }
+        .box-post>span{
+            margin-right: 20px;
+            position: absolute;
+        }
+        .post-num-content{
+            position: absolute;
+            left: 100px;
+            display: inline-block;
+            width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .delete{
+            font-size: 10px;
+            position: absolute;
+            right: 0;
+        }
+        .delete::after{
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main.44265f.png);
+            background-repeat: no-repeat;
+            background-size: 471px 442px;
+            background-position: -58px -427px;
+            width: 14px;
+            height: 14px;
+            content: '';
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .post{
+            width: calc(100% - 100px);
+            overflow: visible;
+            outline: none;
+            padding-left: 5px;
+        }
+        .write{
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="box-post">
+            <span class="post-num1">댓글1 :</span>
+            <a href="#" class="post-num-content">안녕하세요</a>
+            <a href="#" class="delete">삭제</a>
+        </div> -->
+        <div class="box-write">
+            <span href="#">댓글</span>
+            <input type="text" class="post">
+            <a href="#" class="write">확인</a>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var postNum = 0;
+            var postContents = [];
+            var deleteContent;
+            var index;
+            $('.write').click(function(e){
+                e.preventDefault();
+                if($('.post').val() != ''){
+                    postNum++;
+                    postContents.push($('.post').val());
+                    $('.box-write').before('<div class="box-post">'
+                                        +'<span class="post-num'+postNum+'">댓글'+postNum+' :</span>'
+                                        +'<a href="#" class="post-num-content">'+$('.post').val()+'</a><a href="#" class="delete">삭제</a></div>');
+                    $('.post').val('');
+                    deletePost($('.box-post').last().children('.delete'));
+                    // box-post를 만들때마다 새롭게 만들어지는 delete에게 각각의 기능을 부여한다.
+                    viewContent($('.box-post').last().children('.post-num-content'));
+                }else{
+                    alert('작성된 글이 없습니다.')
+                }
+            })
+            function deletePost(obj){
+                obj.click(function(){
+                    deleteContent = $(this).prev().text();
+                    postNum--;
+                    for(var i = 0; i < postContents.length; i++){
+                        if(postContents[i] == deleteContent){
+                            index = i;
+                        }
+                    }
+                    for(var i = index; i < postContents.length; i++){
+                        $('.box-post').eq(i).children('.post-num-content').text(postContents[i+1]);
+                    }
+                    $('.box-post').last().remove();
+                    postContents.splice(index, 1);
+                })
+            }
+            function viewContent(obj){
+                obj.click(function(){
+                    alert($(this).text());
+                })
+            }
+        })
+    </script>
+</body>
+</html>
