@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>github</title>
+    <script src="../jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/55171a36f0.js" crossorigin="anonymous"></script>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: lightslategray;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .head{
+            width: 100%;
+        }
+        .menu{
+            padding: 0 100px;
+            height: 100px;
+            background-color: #24292e;
+            line-height: 100px;
+        }
+        .left-menu{
+            position: relative;
+        }
+        ul{
+            list-style: none;
+        }
+        .left-menu>ul li{
+            font-size: 25px;
+            float: left;
+            margin-left: 20px;
+            color: white;
+        }
+        .left-menu>ul>a:nth-of-type(1)>li
+        ,.left-menu>ul>a:nth-of-type(4)>li
+        ,.left-menu>ul>a:nth-of-type(6)>li{
+            cursor: default;
+        }
+        .box{
+            position: absolute;
+            top: 90px;
+            left: -10px;
+            width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 30px;
+            font-size: 20px;
+            opacity: 0;
+        }
+        .box>ul{
+            line-height: 50px;
+        }
+        .box a{
+            color: gray;
+        }
+        .bold{
+            color: black;
+            font-weight: bold;
+        }
+        ul hr{
+            margin: 30px 0;
+        }
+        .box-explore{
+            left: 400px;
+        }
+        .box-pricing{
+            left: 700px;
+        }
+        .bold>li{
+            float: left;
+        }
+        .bold>span{
+            opacity: 0;
+            float: right;
+            color: cornflowerblue;
+        }
+        .bold::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+        .right-menu{
+            float: right;
+            font-size: 25px;
+        }
+        .search{
+            display: inline-block;
+            position: relative;
+        }
+        .search>input{
+            height: 50px;
+            width: 400px;
+            border-radius: 10px;
+            outline: none;
+            font-size: 25px;
+            padding-left: 20px;
+            background-color: rgb(64, 68, 72);
+            border: none;
+            color: rgb(158, 158, 158);
+        }
+        .right-menu>a{
+            margin-left: 5px;
+            color: white;
+            display: inline-block;
+            line-height: 50px;
+            width: 120px;
+            text-align: center;
+        }
+        .search>img{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 37px;
+            right: 10px;
+        }
+        .sign-up{
+            border: 1px solid white;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .head-signup{
+            width: 100%;
+            height: 1000px;
+            background-color: rgb(82, 82, 82);
+        }
+        .display-none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="menu">
+            <div class="left-menu">
+                <i class="github-logo"></i>
+                <ul>
+                    <a href="#"><li  class="more" target=".box-why">Why GitHub? <i class="fas fa-chevron-down"></i></li></a>
+                    <a href="#"><li>Team</li></a>
+                    <a href="#"><li>Enterprise</li></a>
+                    <a href="#"><li  class="more" target=".box-explore">Explore <i class="fas fa-chevron-down"></i></li></a>
+                    <a href="#"><li>Marketplace</li></a>
+                    <a href="#"><li  class="more" target=".box-pricing">Pricing <i class="fas fa-chevron-down"></i></li></a>
+                </ul>
+                <div class="box-why box display-none">
+                    <ul>
+                        <a href="#" class="bold"><li>Features</li><span>→</span></a>
+                        <a href="#"><li>Code review</li></a>
+                        <a href="#"><li>Project management</li></a>
+                        <a href="#"><li>Integrations</li></a>
+                        <a href="#"><li>Actions</li></a>
+                        <a href="#"><li>Packages</li></a>
+                        <a href="#"><li>Security</li></a>
+                        <a href="#"><li>Team management</li></a>
+                        <a href="#"><li>Hosting</li></a>
+                        <hr>
+                        <a href="#" class="bold"><li>Customer stories</li><span>→</span></a>
+                        <a href="#" class="bold"><li>Security</li><span>→</span></a>                
+                    </ul>
+                </div>
+                <div class="box-explore box display-none">
+                    <ul>
+                        <a href="#" class="bold"><li>Explore GitHub</li><span>→</span></a>
+                        <hr>
+                        <li>Learn & contribute</li>
+                        <a href="#"><li>Topics</li></a>
+                        <a href="#"><li>Collections</li></a>
+                        <a href="#"><li>Trending</li></a>
+                        <a href="#"><li>Learning Lab</li></a>
+                        <a href="#"><li>Open source guides</li></a>
+                        <hr>
+                        <li>Connect with others</li>
+                        <a href="#"><li>Events</li></a>
+                        <a href="#"><li>Community forum</li></a>
+                        <a href="#"><li>GitHub Education</li></a>
+                    </ul>
+                </div>
+                <div class="box-pricing box display-none">
+                    <ul>
+                        <a href="#" class="bold"><li>Plans</li><span>→</span></a>
+                        <a href="#"><li>Compare plans</li></a>
+                        <a href="#"><li>Contact Sales</li></a>
+                        <hr>
+                        <a href="#" class="bold"><li>Nonprofit</li><span>→</span></a>
+                        <a href="#" class="bold"><li>Education</li><span>→</span></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-menu">
+                <form action="" class="search">
+                    <input type="text" placeholder="Search GitHub">
+                    <img src="https://github.githubassets.com/images/search-key-slash.svg"></i>
+                </form>
+                <a href="#" class="link-signin">sign in</a>
+                <a href="#" class="link-signup">sign up</a>
+            </div>
+        </div>
+        <div class="head-signup">
+            
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.left-menu>ul>a').hover(function(){
+                $(this).animate({'opacity':'0.7'},300);
+            },function(){
+                $(this).animate({'opacity':'1'},300);
+            })
+            $('.bold').hover(function(){
+                $(this).children('span').animate({'opacity':'1'},300);
+            },function(){
+                $(this).children('span').animate({'opacity':'0'},300);
+            })
+            $('.more').hover(function(){
+                var target = $(this).attr('target');
+                $(target).removeClass('display-none');
+                $(target).animate({'opacity':'1'},300);
+            },function(){
+                var target = $(this).attr('target');
+                $(target).addClass('display-none')
+                $(target).attr('opacity','0');
+            })
+            $('.box').hover(function(){
+                $(this).removeClass('display-none');
+                $(this).attr('opacity','1');
+            },function(){
+                $(this).addClass('display-none')
+                $(this).attr('opacity','0');
+            })
+            $('.box a').hover(function(){
+                $(this).css('color','cornflowerblue');
+            },function(){
+                $(this).css('color','gray');
+                $('.bold').css('color','black');
+            })
+            
+            $('.search>a').hover(function(){
+                $(this).animate({'opacity':'0.7'},300);
+            },function(){
+                $(this).animate({'opacity':'1'},300);
+            })
+            $('.search>input').click(function(e){
+                $(this).animate({'width':'700px','background-color':'#ffffff'},300);
+                $(this).attr('placeholder','');
+                $(this).next().addClass('display-none');
+                e.stopPropagation();
+                // 클릭을 하면 모든 조상에 대해 클릭이벤트가 발생하는데 그 이벤트를 멈춘다.
+            })
+            $('body').click(function(){
+                $('.search>input').animate({'width':'400px','background-color':'rgb(64, 68, 72)'},300);
+                $('.search>input').attr('placeholder','Search GitHub');
+                $('.search>input').next().removeClass('display-none');
+            })
+            // 클릭하면 특정부분에 변화를 주었다가 다른곳을 클릭하면 원상태로 복귀
+        })
+    </script>
+</body>
+</html> 
